@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Pendaftaran</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container text-center mt-5">
+        <div class="alert alert-success">
+            <h2>Pendaftaran Berhasil!</h2>
+            <p>Pasien <strong>{{ nama }}</strong> ({{ umur }} tahun) telah terdaftar di <strong>{{ poli }}</strong>.</p>
+            <p><strong>Nomor Antrian: {{ antrian }}</strong></p>
+        </div>
+        <a href="/antrian" class="btn btn-success btn-lg">OKE</a>
+    </div>
+</body>
+</html>

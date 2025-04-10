@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Pasien</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center">Edit Data Pasien</h2>
+        <div class="card p-4 shadow-sm">
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama:</label>
+                    <input type="text" id="nama" name="nama" class="form-control" value="{{ pasien[1] }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="umur" class="form-label">Umur:</label>
+                    <input type="number" id="umur" name="umur" class="form-control" value="{{ pasien[2] }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="poli" class="form-label">Poli Tujuan:</label>
+                    <select id="poli" name="poli" class="form-select" required>
+                        <option value="Poli Jantung" {% if pasien[3] == 'Poli Jantung' %}selected{% endif %}>Poli Jantung</option>
+                        <option value="Poli Gigi" {% if pasien[3] == 'Poli Gigi' %}selected{% endif %}>Poli Gigi</option>
+                        <option value="Poli Mata" {% if pasien[3] == 'Poli Mata' %}selected{% endif %}>Poli Mata</option>
+                        <option value="Poli Umum" {% if pasien[3] == 'Poli Umum' %}selected{% endif %}>Poli Umum</option>
+                        <option value="Poli Anak" {% if pasien[3] == 'Poli Anak' %}selected{% endif %}>Poli Anak</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Simpan Perubahan</button>
+            </form>
+        </div>
+        <div class="text-center mt-3">
+            <a href="/antrian" class="btn btn-secondary">Kembali</a>
+        </div>
+    </div>
+</body>
+</html>

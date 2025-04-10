@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panggil Pasien</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5 text-center">
+        <h2 class="mb-4">Panggilan Pasien</h2>
+
+        <div class="alert alert-warning shadow">
+            {% if pasien %}
+                <h4>Pasien Berikutnya:</h4>
+                <p class="fw-bold display-5">{{ pasien[1] }}</p>
+                <p class="fs-5">Umur: {{ pasien[2] }} tahun</p>
+                <p class="fs-5">Poli: <strong>{{ pasien[3] }}</strong></p>
+            {% else %}
+                <p class="text-muted">Tidak ada pasien dalam antrian.</p>
+                <a href="/antrian" class="btn btn-secondary btn-lg mt-3">Kembali</a>
+            {% endif %}
+        </div>
+
+        {% if pasien %}
+            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#modalPanggil">Panggil</button>
+        {% endif %}
+    </div>
+
+    <div class="modal fade" id="modalPanggil" tabindex="-1" aria-labelledby="modalPanggilLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalPanggilLabel">Pasien Telah Berhasil Dipanggil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="panggilPasien()"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Pasien: <strong><span id="modalNama">{{ pasien[1] }}</span></strong></p>
+                    <p>Umur: <strong><span id="modalUmur">{{ pasien[2] }}</span> Tahun</strong></p>
+                    <p>Poli: <strong><span id="modalPoli">{{ pasien[3] }}</span></strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" onclick="panggilPasien()">OKE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function panggilPasien() {
+            window.location.href = "/antrian";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Antrian RS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">Selamat Datang di Sistem Antrian RS</h1>
+        <a href="/tambah" class="btn btn-primary btn-lg m-2">Tambah Pasien</a>
+        <a href="/antrian" class="btn btn-success btn-lg m-2">Lihat Antrian</a>
+        <button class="btn btn-danger btn-lg m-2" onclick="keluarAplikasi()">Exit</button>
+    </div>
+
+    <script>
+        function keluarAplikasi() {
+            fetch('/keluar', { method: 'POST' })
+                .then(response => {
+                    if (response.ok) {
+                        window.close();  
+                    }
+                });
+        }
+    </script>
+</body>
+</html>
